@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/java.js"></script>
+  <title>Blue Planet Awareness</title>
+</head>
+<body onload="display()">
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Blue Planet Awareness</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="Sources.html">Sources of Pollution</a>
+        <a class="nav-link" href="Impacts.html">Impacts of Pollution</a>
+        <a class="nav-link" href="Solutions.html">Solutions to Pollution</a>
+        <a class="nav-link" href="making-of.html">Making of Pollution</a>
+        <a class="nav-link" href="our-story.html">Our Story</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="banner banner1">
+  <div class="container">
+    <h1>Save Our Oceans: Protect Marine<br> Life & Our Planet</h1>
+    <p>Learn about the causes, impacts, and solutions to ocean pollution</p>
+    <p><b>Welcome <u><span id="dname"></span></u></b></p><br><br>
+    <a class="btn" href="#contact" role="button">Contact Us</a>
+
+  </div>
+</div>
+<div class="container overview">
+  <h1>Understanding the <span>Ocean Pollution</span> Crisis and Its Global Impact</h1>
+  <p>Oceans cover over 70% of Earth and provide oxygen, food, and habitats. Pollution from plastics, chemicals, and waste threatens marine life and the health of our planet.<br>
+  Millions of tons of waste enter oceans yearly, disrupting ecosystems and contaminating seafood consumed by humans worldwide.<br>
+  This website shows causes, impacts, and solutions to pollution.</p>
+</div>
+<div class="container">
+    <div class="row icons">
+      <div class="col-lg-3 col-md-6"><img src="image/plastic.png" class="img-fluid"><h2>Plastics on Oceans</h2><p>12 million tons of plastic enter the oceans every year.</p></div>
+      <div class="col-lg-3 col-md-6"><img src="image/die.png" class="img-fluid"><h2>Marine Lifes</h2><p>100,000 marine mammals die annually from entanglement or ingestion.</p></div>
+      <div class="col-lg-3 col-md-6"><img src="image/coral.png" class="img-fluid"><h2>Coral Reefs</h2><p>50% of coral reefs have been damaged by pollution.</p></div>
+      <div class="col-lg-3 col-md-6"><img src="image/industry.png" class="img-fluid"><h2>Ocean Acidity</h2><p>30% increase in ocean acidity since the Industrial Revolution.</p></div>
+    </div>
+</div>
+<div class="menu">
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="menu_side">
+            <img src="image/plastic2.jpg" alt="Plastic pollution cause" class="img-fluid">
+            <h2>Sources of Ocean Pollution</h2>
+            <p>Discover what’s polluting our oceans and why.</p>
+            <a class="btn" href="Sources.html" role="button">Causes Page</a>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="menu_side">
+            <img src="image/impact.jpg" alt="Plastic pollution impact" class="img-fluid">
+            <h2>Impacts of Ocean Pollution</h2>
+            <p>Learn how pollution affects marine life and humans.</p>
+            <a class="btn" href="Impacts.html" role="button">Impacts Page</a>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="menu_side">
+            <img src="image/support.jpg" alt="Plastic pollution solution" class="img-fluid">
+            <h2>Solution to Ocean Pollution</h2>
+            <p>Find out how we can protect oceans together.</p>
+            <a class="btn" href="Solutions.html" role="button">Solutions Page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="container p-5 mt-5 text-center text-primary">
+  <h1>Explore how ocean pollution begins, its impacts, and how we can protect our planet.</h1><hr>
+</div>
+<div class="container-fluid banner banner2">
+  <div class="container form">
+    <h2 id="contact">Join Our Ocean Movement</h2>
+    <form onsubmit="return test()">
+      <div>
+        <label for="fn" class="form-label">First Name</label>
+        <input type="text" id="fn" class="form-control" placeholder="Enter your first name" required>
+      </div>
+      <div>
+        <label for="ln" class="form-label">Last Name</label>
+        <input type="text" id="ln" class="form-control" placeholder="Enter your last name" required>
+      </div>
+      <div>
+        <label for="mobile" class="form-label">Mobile Number</label>
+        <input type="tel" id="mobile" class="form-control" placeholder="8-digit mobile number" required>
+      </div>
+      <div>
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+      </div>
+      <input type="submit" value="Register" class="btn btn-primary form-control"><br>
+    </form>
+    <span id="error"></span>
+  </div>
+</div>
+<div class="footer">
+  <div class="container footer_side">
+    <h3>Join us in protecting the ocean. Explore, learn, and act today!</h3>
+    <p>Discover the reasons, impacts and solutions to protect our oceans from pollution</p>
+  </div>
+  <div class="footer_side">
+    <p>© 2025 BluePlanetAwareness. Designed by <b> Mohamed(202305535), Umer (202301466), Saqlain (202302015), Shahd (202301699)</b>.</p>
+  </div>
+</div>
+</body>
+</html>
