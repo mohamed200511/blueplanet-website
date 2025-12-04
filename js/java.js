@@ -22,14 +22,16 @@ async function test() {
         body: JSON.stringify({ fn, ln, mobile, email })
     });
 
-    if (response.ok) {
-        localStorage.setItem('firstName', fn);
-        alert('Data saved to database! Welcome ' + fn);
-        return true;
-    } else {
-        document.getElementById("error").innerHTML = "Database error";
+     if (data.error) {
+        document.getElementById("error").innerHTML = data.error;
         return false;
     }
+
+    alert("Successful Submission, Welcome " + fn);
+
+    localStorage.setItem('firstName', fn);
+
+    return true;
 }
 
 
