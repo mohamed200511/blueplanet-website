@@ -12,26 +12,28 @@ async function test() {
         document.getElementById("error").innerHTML = "Last Name Should Be At Least 3 Characters";
         return false;
     }
-    if (mobile.length != 8) {
+    if (mobile.length != 8 || isNaN(Number(mobile))) {
         document.getElementById("error").innerHTML = "Mobile Number Must Contain Exactly 8 Digits";
         return false;
     }
 
-    const response = await fetch("/.netlify/functions/saveUser", {
+    const data = { firstName: fn, lastName: ln, mobile, email };
+
+    const res = await fetch("/.netlify/functions/save", {
         method: "POST",
-        body: JSON.stringify({ fn, ln, mobile, email })
+        body: JSON.stringify(data)
     });
 
-     if (data.error) {
-        document.getElementById("error").innerHTML = data.error;
-        return false;
+    const result = await res.json();
+
+    if (res.ok) {
+        alert("Saved to database! Welcome " + fn);
+        localStorage.setItem("firstName", fn);
+    } else {
+        alert("Error: " + result.error);
     }
 
-    alert("Successful Submission, Welcome " + fn);
-
-    localStorage.setItem('firstName', fn);
-
-    return true;
+    return false; 
 }
 
 
