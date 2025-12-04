@@ -1,28 +1,34 @@
-const { Client } = require("pg");
+import { Client } from '@neondatabase/serverless';
 
-exports.handler = async (event, context) => {
-    const body = JSON.parse(event.body);
+export async function handler(event, context) {
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: "Method Not Allowed"
+    };
+  }
 
-    const client = new Client({
-        connectionString: process.env.DATABASE_URL
-    });
+  const { firstName, lastName, mobile, email } = JSON.parse(event.body);
 
-    try {
-        await client.connect();
+  const client = new Client(process.env.NEON_DB_URL);
+  await client.connect();
 
-        await client.query(
-            "INSERT INTO users (first_name, last_name, mobile, email) VALUES ($1, $2, $3, $4)",
-            [body.fn, body.ln, body.mobile, body.email]
-        );
+  try {
+    await client.query(
+      "INSERT INTO registrations (first_name, last_name, mobile, email) VALUES ($1,$2,$3,$4)",
+      [firstName, lastName, mobile, email]
+    );
 
-        await client.end();
-
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ message: "Saved successfully" })
-        };
-
-    } catch (err) {
-        return { statusCode: 500, body: err.toString() };
-    }
-};
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: "Saved successfully" })
+    };
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message })
+    };
+  } finally {
+    await client.end();
+  }
+}
