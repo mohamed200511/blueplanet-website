@@ -8,7 +8,7 @@ export async function handler(event, context) {
   try {
     const { firstName, lastName, mobile, email } = JSON.parse(event.body);
 
-    const client = new Client(process.env.NEON_DB_URL);
+    const client = new Client(process.env.TEST_URL_ME);
     await client.connect();
 
     await client.query(
